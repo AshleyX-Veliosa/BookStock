@@ -1,10 +1,14 @@
 ﻿using BookStock;
-
+using System;
+using System.Diagnostics;
+using System.Threading;
+using System.Timers;
 namespace BookStoxkForm
 {
     public partial class Form1 : Form
     {
         DoublyLinkedList y = new DoublyLinkedList();
+        //use Time to watch data
         public Form1()
         {
             InitializeComponent();
@@ -74,11 +78,18 @@ namespace BookStoxkForm
         {
             int i = int.Parse(textBox5.Text);
             textBox6.Text = "" + y.get(i - 1);
+            //use Time to watch data
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
             y.set(int.Parse(textBox5.Text) - 1, textBox6.Text);
+            MessageBox.Show("แก้ไขข้อมูลเรียบร้อย");
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+
         }
     }
 }

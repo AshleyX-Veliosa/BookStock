@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             textBox1 = new TextBox();
             label1 = new Label();
@@ -48,6 +49,7 @@
             label7 = new Label();
             label8 = new Label();
             button6 = new Button();
+            timer = new System.Windows.Forms.Timer(components);
             SuspendLayout();
             // 
             // textBox1
@@ -144,7 +146,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(525, 382);
+            label4.Location = new Point(522, 340);
             label4.Name = "label4";
             label4.Size = new Size(96, 15);
             label4.TabIndex = 14;
@@ -223,11 +225,15 @@
             button6.UseVisualStyleBackColor = true;
             button6.Click += button6_Click;
             // 
+            // timer
+            // 
+            timer.Tick += timer1_Tick;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(665, 436);
+            ClientSize = new Size(636, 375);
             Controls.Add(button6);
             Controls.Add(label8);
             Controls.Add(label7);
@@ -276,5 +282,6 @@
         private Label label7;
         private Label label8;
         private Button button6;
+        public System.Windows.Forms.Timer timer;
     }
 }
