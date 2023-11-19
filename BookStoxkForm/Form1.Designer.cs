@@ -227,6 +227,7 @@
             // 
             // timer
             // 
+            timer.Interval = 60000;
             timer.Tick += timer1_Tick;
             // 
             // Form1

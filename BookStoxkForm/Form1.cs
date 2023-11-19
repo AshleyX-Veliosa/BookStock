@@ -1,17 +1,17 @@
 ﻿using BookStock;
-using System;
-using System.Diagnostics;
-using System.Threading;
-using System.Timers;
+using System.Windows.Forms;
+
 namespace BookStoxkForm
 {
     public partial class Form1 : Form
     {
         DoublyLinkedList y = new DoublyLinkedList();
-        //use Time to watch data
         public Form1()
         {
             InitializeComponent();
+            timer = new System.Windows.Forms.Timer();
+            timer.Interval = 60000; // Set the interval to 60 seconds (60,000 milliseconds)
+            timer.Tick += timer1_Tick;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -26,7 +26,7 @@ namespace BookStoxkForm
         {
             y.add(textBox1.Text);
             label4.Text = "จำนวนหนังสือ " + y.size() + " เล่ม";
-
+            timer.Start();
         }
 
         private void label4_Click(object sender, EventArgs e)//this must show how many data in list
@@ -61,7 +61,7 @@ namespace BookStoxkForm
         {
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private async void button4_Click(object sender, EventArgs e)
         {
             richTextBox1.Text = "";
             for (int i = 0; i < y.size(); i++)
@@ -89,7 +89,8 @@ namespace BookStoxkForm
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-
+            timer.Stop();
+            MessageBox.Show("ข้อมูลหนังสือที่เก่าที่สุดควรนำมาจำหน่าย คือ " + y.get(0));
         }
     }
 }
